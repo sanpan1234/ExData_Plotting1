@@ -14,7 +14,8 @@ pdata$Date <- as.Date(pdata$Date, format = "%d/%m/%Y")
 #dplyr filter() is used to select the rows for the two dates.
 #Extract the column needed using select()
 plot1_data <- select(filter(pdata, Date == startDate | Date == endDate),
-                     as.numeric(Global_active_power))
+                     Global_active_power)
+plot1_data <- as.numeric(plot1_data[plot1_data$Global_active_power != "?",][[1]])
 #remove the big dataset
 rm(pdata)
 #plot the histogram for plot1
