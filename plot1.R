@@ -3,7 +3,7 @@
 data_file <- "./data/household_power_consumption.txt"
 #packages used
 library(dplyr)
-#read data file and conver to tibble for use with dplyr
+#read data file and convert to tibble for use with dplyr
 pdata <- tbl_df(read.table(data_file, header = TRUE, sep = ";",
                     stringsAsFactors = FALSE))
 #We need to only account for two dates
