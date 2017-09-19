@@ -15,6 +15,7 @@ pdata$Date <- as.Date(pdata$Date, format = "%d/%m/%Y")
 #Extract the column needed using select()
 plot1_data <- select(filter(pdata, Date == startDate | Date == endDate),
                      Global_active_power)
+#convert to numeric after removing any rows with "?"
 plot1_data <- as.numeric(plot1_data[plot1_data$Global_active_power != "?",][[1]])
 #remove the big dataset
 rm(pdata)
